@@ -27,7 +27,7 @@ bot.startRTM(function(error, whichBot, payload) {
 //var userList = () => createArray.user.list;
 
 controller.hears(['hello'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, 'Oh Hai! Did you say soomething?' + Date());
+  whichBot.reply(message, 'Oh Hai! Did you say something?' + Date());
 });
 
 controller.hears(['hey' || 'howdy'], ['mention'], function(whichBot, message) {
