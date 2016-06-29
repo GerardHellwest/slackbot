@@ -226,3 +226,4 @@ $ now remove VGCt1QVxGMj5i84kfbprKlzH
 Got a Slackbot up and running, responding to commands? Excellent! Ask your
 instructor for more info on the Slackbot assignment which you are now prepared
 to get started with.
+# slackbot

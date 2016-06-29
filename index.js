@@ -25,9 +25,16 @@ bot.startRTM(function(error, whichBot, payload) {
 });
 
 controller.hears(['hello'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, 'Oh Hai! Did you say my name?');
+  whichBot.reply(message, 'Oh Hai! Did you say soomething?' + Date());
 });
+
+controller.hears(['hey'], ['mention'], function(whichBot, message) {
+  whichBot.reply(message, 'Hey yourself, do you want to use Nicknames?' + Date());
+});
+
+
 
 /*controller.hears(['name'], ['mention'], function(whichBot, message) {
   whichBot.reply(message, "Hi, what's your name?");
 });*/
+
