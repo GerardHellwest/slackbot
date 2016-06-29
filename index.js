@@ -27,7 +27,7 @@ bot.startRTM(function(error, whichBot, payload) {
 //var userList = () => createArray.user.list;
 
 controller.hears(['hello'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, 'Oh Hai! Did you say soomething?' + Date());
+  whichBot.reply(message, 'Oh Hai! Did you say something?' + Date());
 });
 
 controller.hears(['hey' || 'howdy'], ['mention'], function(whichBot, message) {
@@ -43,7 +43,7 @@ controller.hears(['hey' || 'howdy'], ['mention'], function(whichBot, message) {
 /*
 1 respond to hello
 2 respond  to informal greeting with invite to use nickname
-3 give user a nickname or can I get them to choose a nickname from a list?
+3 give user a nickname or can I get them to choose a nickname from a list? replyInteractive
 4 generate a list of users
-5 Notify me whenever my name is on a list i.e. whenever a user.list has been generated
+5 Notify me whenever my name is on a list i.e. whenever a user.list has been generated Listener
 */
