@@ -24,23 +24,17 @@ bot.startRTM(function(error, whichBot, payload) {
   }
 });
 
-var userList = () => user.list;
+//var userList = () => createArray.user.list;
 
 controller.hears(['hello'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, 'Oh Hai! Did you say something?' );
+  whichBot.reply(message, 'Oh Hai! Did you say something?' + Date());
 });
 
-controller.hears(['hey', 'howdy'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, 'Hey yourself, do you want to use Nicknames?' );
+controller.hears(['hey' || 'howdy'], ['mention'], function(whichBot, message) {
+  whichBot.reply(message, 'Hey yourself, do you want to use Nicknames?' + Date());
 });
 
-controller.hears(['okay', 'yes', 'ok', 'sure'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, "I'm going to call you Bruce to save any confusion!" );
-});
 
-controller.hears(['users', 'who', 'online', 'channel'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, "Here, Bruce, is a list of users on this channel: " + user.list);
-});
 
 
 /*controller.hears(['name'], ['mention'], function(whichBot, message) {
@@ -49,9 +43,7 @@ controller.hears(['users', 'who', 'online', 'channel'], ['mention'], function(wh
 /*
 1 respond to hello
 2 respond  to informal greeting with invite to use nickname
-3 give user a nickname or can I get them to choose a nickname from a list? replyInteractive
+3 give user a nickname or can I get them to choose a nickname from a list?
 4 generate a list of users
-5 Notify me whenever my name is on a list i.e. whenever a user.list has been generated Listener
+5 Notify me whenever my name is on a list i.e. whenever a user.list has been generated
 */
-
-
