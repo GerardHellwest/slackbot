@@ -24,9 +24,9 @@ bot.startRTM(function(error, whichBot, payload) {
   }
 });
 
-var users = bot.api.channels.users.list({},function(err,response) {
+/*var users = bot.api.channels.users.list({},function(err,response) {
   users(toString);
-});
+});*/
 
 controller.hears(['hello'], ['mention'], function(whichBot, message) {
   whichBot.reply(message, 'Oh Hai! Did you say something?' + Date());
@@ -37,14 +37,14 @@ controller.hears(['hey', 'howdy', 'hi'], ['mention'], function(whichBot, message
 });
 
 controller.hears(['okay', 'yes', 'ok', 'sure'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, "I'm going to call you Bruce to save any confusion!" );
+  whichBot.reply(message, "I'm going to call you Bruce to save any confusion! " + Date());
 });
 
 controller.hears(['users', 'who', 'online', 'channel'], ['mention'], function(whichBot, message) {
   whichBot.reply(message, "Here, Bruce, is a list of users on this channel: " + users)
 });
 
-ßß
+
 
 
 /*controller.hears(['name'], ['mention'], function(whichBot, message) {
