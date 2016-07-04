@@ -41,6 +41,12 @@ var randomImage = function(images){
   return images[Math.floor(Math.random()*images.length)];
 }
 
+/*var reply_with_attachments = {
+    'random image from my life': randomImage(image); 
+    }
+  bot.reply(message, reply_with_attachments);
+});
+*/
 
 controller.hears(['hello'], ['mention'], function(whichBot, message) {
   whichBot.reply(message, 'Oh Hai! Did you say something?');
@@ -53,13 +59,14 @@ controller.hears(['hey', 'howdy', 'hi'], ['mention'], function(whichBot, message
 
 controller.hears(['okay', 'yes', 'ok', 'sure'], ['mention'], function(whichBot, message) {
   whichBot.reply(message, "I'm going to call you Bruce to save any confusion! " + randomImage(images));
+  bot.reply(message, reply_with_attachments);
 });
 
-controller.hears(['list of users', 'online'], ['mention'], function(whichBot, message) {
-    bot.api.users.list({},function(err,response) {
+controller.hears(['list of users', 'who is', 'users list'], ['mention'], function(whichBot, message) {
+    bot.api.users.list({},function(err,response){
       var memberNames = []
       response.members.forEach(function(member){
-        memberNames.push(member.names);
+        memberNames.push(member.name)
       })
       console.log(memberNames)
       whichBot.reply(message, memberNames.join(', '));
@@ -72,28 +79,28 @@ controller.hears(['list of users', 'online'], ['mention'], function(whichBot, me
   whichBot.reply(message, "Here, Bruce, is a list of users on this channel: " + users)
 });*/
 
+/*controller.hears('another_keyword','direct_message,direct_mention',function(bot,message) {
+  var reply_with_attachments = {
+    'username': 'My bot' ,
+    'text': 'This is a pre-text',
+    'attachments': [
+      {
+        'fallback': 'To be useful, I need you to invite me in a channel.',
+        'title': 'How can I help you?',
+        'text': 'To be useful, I need you to invite me in a channel ',
+        'color': '#7CD197'
+      }
+    ],
+    'icon_url': 'http://lorempixel.com/48/48'
+    }
 
-
-
-/*controller.hears(['name'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, "Hi, what's your name?");
-});*/
+  bot.reply(message, reply_with_attachments);
+});
+*/
 /*
 1 respond to hello
 2 respond  to informal greeting with invite to use nickname
-3 give user a nickname or can I get them to choose a nickname from a list? replyInteractive
+3 give user the nickname Bruce (montypython reference) and a random image 
 4 generate a list of users
-5 Notify me whenever my name is on a list i.e. whenever a user.list has been generated Listener
+5 Ask about the election and use an if else if statement???
 */
-
-/*bot.api.users.list
-
-bot.api.channels.list({},function(err,response) {
-  
-})
-*/
-
-//dud 
-/*var users = bot.api.channels.users.list({},function(err,response) {
-  users(toString);
-});*/
