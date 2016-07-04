@@ -55,7 +55,7 @@ controller.hears(['okay', 'yes', 'ok', 'sure'], ['mention'], function(whichBot, 
   whichBot.reply(message, "I'm going to call you Bruce to save any confusion! " + randomImage(images));
 });
 
-/*controller.hears(['who goes there'], ['mention'], function(whichBot, message) {
+controller.hears(['who goes there'], ['mention'], function(whichBot, message) {
     bot.api.users.list({},function(err,response) {
       var memberNames = []
       response.members.forEach(function(member){
@@ -64,7 +64,7 @@ controller.hears(['okay', 'yes', 'ok', 'sure'], ['mention'], function(whichBot, 
       console.log(memberNames)
       whichBot.reply(message, memberNames.join(', '));
     })
-});*/
+});
 
 /*controller.hears(['users', 'who', 'online', 'channel'], ['mention'], function(whichBot, message) {
   whichBot.reply(message, "Here, Bruce, is a list of users on this channel: " + users)
