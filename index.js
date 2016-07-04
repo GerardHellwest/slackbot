@@ -44,22 +44,25 @@ var randomImage = function(images){
 /*var reply_with_attachments = {
     'random image from my life': randomImage(image); 
     }
-  bot.reply(message, reply_with_attachments);
+  bot.reply(message, reply_with_attachments);var t = new Date(); t.getHours()
 });
 */
 
 controller.hears(['hello'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, 'Oh Hai! Did you say something?');
+  var t = new Date(); 
+  var hours = t.getHours();
+  whichBot.reply(message, hours >= 12 ? "Good evening." : " Good Morning.");
 });
 
 controller.hears(['hey', 'howdy', 'hi'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, 'Hey yourself, do you want to use Nicknames?' );
+  whichBot.reply(message, 'Hey yourself, do you want to use Nicknames?');
 });
 
 
 controller.hears(['okay', 'yes', 'ok', 'sure'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, "I'm going to call you Bruce to save any confusion! " + randomImage(images));
-  bot.reply(message, reply_with_attachments);
+  whichBot.reply(message, randomImage(images));
+  whichBot.reply(message, "I'm going to call you Bruce to save any confusion! " );
+  //see: https://youtu.be/_f_p0CgPeyA University of Wooloomooloo sketch
 });
 
 controller.hears(['list of users', 'who is', 'users list'], ['mention'], function(whichBot, message) {
@@ -75,32 +78,9 @@ controller.hears(['list of users', 'who is', 'users list'], ['mention'], functio
 
 
 
-/*controller.hears(['users', 'who', 'online', 'channel'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, "Here, Bruce, is a list of users on this channel: " + users)
-});*/
 
-/*controller.hears('another_keyword','direct_message,direct_mention',function(bot,message) {
-  var reply_with_attachments = {
-    'username': 'My bot' ,
-    'text': 'This is a pre-text',
-    'attachments': [
-      {
-        'fallback': 'To be useful, I need you to invite me in a channel.',
-        'title': 'How can I help you?',
-        'text': 'To be useful, I need you to invite me in a channel ',
-        'color': '#7CD197'
-      }
-    ],
-    'icon_url': 'http://lorempixel.com/48/48'
-    }
-
-  bot.reply(message, reply_with_attachments);
-});
-*/
-/*
-1 respond to hello
+1 respond to hello if conditional on am or pm
 2 respond  to informal greeting with invite to use nickname
-3 give user the nickname Bruce (montypython reference) and a random image 
+3 give user the nickname Bruce (monty python reference) and a random image 
 4 generate a list of users
-5 Ask about the election and use an if else if statement???
 */
