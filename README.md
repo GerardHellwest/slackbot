@@ -1,4 +1,12 @@
 # My First Slackbot
+These are my objectives:
+
+1 respond to hello if conditional on am or pm
+2 respond  to informal greeting with invite to use nickname
+3 give user the nickname Bruce (monty python reference) and a random image 
+4 generate a list of users
+
+END OF OBJECTIVES
 
 This project serves as a base to start creating a slackbot.
 
