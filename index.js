@@ -25,16 +25,16 @@ bot.startRTM(function(error, whichBot, payload) {
 });
 
 var images = [
-'https://drive.google.com/open?id=0ByEj7hd86PNZLVhxX0lEQm1BQkk',
-'https://drive.google.com/open?id=0ByEj7hd86PNZWE4wNzk2eV8xVnM',
-'https://drive.google.com/open?id=0ByEj7hd86PNZalJyWHdYbDZKU0k',
-'https://drive.google.com/open?id=0ByEj7hd86PNZbEZpc0JheFU0MlE',
-'https://drive.google.com/open?id=0ByEj7hd86PNZeDRYZTBnYmZjY3c',
-'https://drive.google.com/open?id=0ByEj7hd86PNZYm1rbWp4QXFfb0k',
-'https://drive.google.com/open?id=0ByEj7hd86PNZa1RLNGV5cEM5MHM',
-'https://drive.google.com/open?id=0ByEj7hd86PNZUjVqSjJSNkx6eXM',
-'https://drive.google.com/open?id=0ByEj7hd86PNZZElCc1FuNUEzOTg',
-'https://drive.google.com/open?id=0ByEj7hd86PNZODB3OWtZVnc2bk0'
+'https://js1syd.slack.com/files/gerardwilson/F1NFSU0H3/bullittchase.jpg',
+'https://js1syd.slack.com/files/gerardwilson/F1NFG7HE0/bullitt-1968-steve-mcqueen.jpg',
+'https://js1syd.slack.com/files/gerardwilson/F1NFJDXL6/gwx-20130913_124010.jpg',
+'https://js1syd.slack.com/files/gerardwilson/F1NFSUWN9/gwx-20130923_125627.jpg',
+'https://js1syd.slack.com/files/gerardwilson/F1NFZFRCZ/gwx-20130923_125700.jpg',
+'https://js1syd.slack.com/files/gerardwilson/F1NFZGEM7/gwx-20130926_114234.jpg',
+'https://js1syd.slack.com/files/gerardwilson/F1NFJGTGE/gwx-20130926_114257.jpg',
+'https://js1syd.slack.com/files/gerardwilson/F1NG3JQMQ/scamper-waiting.jpg',
+'https://js1syd.slack.com/files/gerardwilson/F1NFSU6LX/leonard-nimoy-llap.jpg',
+'https://js1syd.slack.com/files/gerardwilson/F1NFSTWKH/jane-brown-michael-caine.png'
 ]
 
 var randomImage = function(images){
@@ -43,16 +43,28 @@ var randomImage = function(images){
 
 
 controller.hears(['hello'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, 'Oh Hai! Did you say something?' + randomImage;
+  whichBot.reply(message, 'Oh Hai! Did you say something?');
 });
 
 controller.hears(['hey', 'howdy', 'hi'], ['mention'], function(whichBot, message) {
   whichBot.reply(message, 'Hey yourself, do you want to use Nicknames?' );
 });
 
+
 controller.hears(['okay', 'yes', 'ok', 'sure'], ['mention'], function(whichBot, message) {
-  whichBot.reply(message, "I'm going to call you Bruce to save any confusion! " + Date());
+  whichBot.reply(message, "I'm going to call you Bruce to save any confusion! " + randomImage(images));
 });
+
+/*controller.hears(['who goes there'], ['mention'], function(whichBot, message) {
+    bot.api.users.list({},function(err,response) {
+      var memberNames = []
+      response.members.forEach(function(member){
+        memberNames.push(member.name)
+      })
+      console.log(memberNames)
+      whichBot.reply(message, memberNames.join(', '));
+    })
+});*/
 
 /*controller.hears(['users', 'who', 'online', 'channel'], ['mention'], function(whichBot, message) {
   whichBot.reply(message, "Here, Bruce, is a list of users on this channel: " + users)
